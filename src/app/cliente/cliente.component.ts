@@ -1,6 +1,8 @@
+import { ClienteService } from './shared/cliente.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { Cliente } from './shared/cliente';
 
 @Component({
   selector: 'app-cliente',
@@ -10,8 +12,11 @@ import { ToastrService } from 'ngx-toastr';
 export class ClienteComponent implements OnInit {
 
   formulario = new FormGroup({});
+  cliente = new Cliente();
 
-  constructor(private toastr: ToastrService) { }
+  constructor(
+    private clienteService: ClienteService,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.criaFormulario();
@@ -26,16 +31,32 @@ export class ClienteComponent implements OnInit {
   }
 
   salvar(): void {
-    this.mensagemSucesso();
-    this.reset();
+    this.setCliente();
+    this.clienteService.postCliente(this.cliente).subscribe(
+      (resposta) => { this.cliente = resposta , this.mensagemSucesso(), this.resetaFormulario(); },
+      (erro) => this.mensagemErro(erro)
+    );
   }
 
-  reset(): void{
+  setCliente(): void {
+    this.cliente.nome = this.formulario.controls.nome.value;
+    this.cliente.telefone = this.formulario.controls.telefone.value;
+    this.cliente.email = this.formulario.controls.email.value;
+  }
+
+  resetaFormulario(): void{
     this.formulario.reset();
   }
 
   mensagemSucesso(): void {
     this.toastr.info(`Cliente ${this.formulario.controls.nome.value} cadastrado com sucesso!`);
   }
+
+  mensagemErro(erro: string): void {
+    this.toastr.warning(erro);
+  }
+
+
+
 
 }

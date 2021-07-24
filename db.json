@@ -1,5 +1,22 @@
 {
   "cliente": [
-    { "nome": 1, "telefone": "(11) 9999-8888", "email": "diegobueno.souza@gmail.com" }
+    {
+      "id": 1,
+      "nome": "Camila",
+      "telefone": "(11) 9999-8888",
+      "email": "diegobueno.souza@gmail.com"
+    },
+    {
+      "nome": "DIEGO BUENO DE SOUZA",
+      "telefone": "12312312312",
+      "email": "diegobueno.souza@gmail.com",
+      "id": 2
+    },
+    {
+      "nome": "DIEGO BUENO DE SOUZA",
+      "telefone": "1159246072",
+      "email": "diegobueno.souza@gmail.com",
+      "id": 3
+    }
   ]
 }
