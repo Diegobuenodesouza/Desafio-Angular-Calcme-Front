@@ -1,0 +1,62 @@
+
+.header-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;  word-spacing: 1.4px;
+  box-shadow: 0 0 25px 20px rgb(241, 239, 239);
+  margin-bottom: 3em;
+
+
+}
+
+.header-title{
+  font-weight: 700;
+  font-size: 2em;
+  margin: 0.3em;
+  color: #205081;
+  font-family: 'Otomanopee One', sans-serif;
+  text-shadow: 1px 1px 2px white;
+
+
+}
+
+.header-nav{
+  margin: .7em;
+}
+.header-list{
+  display: inline;
+  margin: 0;
+  padding-inline-start: 0
+}
+.header-list li{
+  display: inline-block;
+  text-decoration: none;
+}
+.header-item{
+  text-decoration: none;
+  margin: 0.8em;
+  font-weight: 600;
+  padding: 0.4em;
+  color: #205081;
+}
+
+.header-item:hover{
+border-bottom: 0.325em solid #00bdfe;
+}
+
+
+@media screen and (min-width: 900px) {
+  .header-container{
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .header-nav{
+    margin-right: 3em;
+  }
+
+  .header-title{
+    margin-left: 3em;
+  }
+}
+
+

@@ -1,0 +1,74 @@
+.container{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.formulario{
+  width: 400px;
+  height: 400px;
+  background: rgba( 255, 255, 255, 0.25 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+h2, .btn, label{
+  font-family: 'Otomanopee One', sans-serif;
+
+}
+
+
+h2{
+  background-image: linear-gradient(#3072b4b2 ,#205081, #3072b4b2);
+  width: 400px;
+  padding-top: 25px;
+  text-align: center;
+  flex-grow: 0.2;
+  margin: 0;
+  align-items: center;
+  color: white;
+  border-radius: 2px;
+}
+
+
+.controle-input{
+  border: none;
+  height: 2.5em;
+  width: 300px;
+  display: block;
+  background-color: rgb(228, 224, 224);
+  font-size: 1em;
+  word-spacing: 1.2px;
+
+}
+
+.btn{
+  border-radius: 50%;
+  background-color: #205081;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 3% 5%;
+  width: 200px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover{
+  background-color: #4a8aca;
+}
+
+.btn:disabled{
+  text-shadow: none;
+  background-color: rgb(194, 191, 191);
+  cursor: default;
+}
