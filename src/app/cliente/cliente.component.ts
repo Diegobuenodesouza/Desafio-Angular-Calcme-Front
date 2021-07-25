@@ -14,9 +14,8 @@ export class ClienteComponent implements OnInit {
   formulario = new FormGroup({});
   cliente = new Cliente();
 
-  constructor(
-    private clienteService: ClienteService,
-    private toastr: ToastrService) { }
+  constructor(private clienteService: ClienteService,
+              private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.criaFormulario();
@@ -24,7 +23,7 @@ export class ClienteComponent implements OnInit {
 
   criaFormulario(): void{
     this.formulario = new FormGroup({
-      nome: new FormControl('', [Validators.required]),
+      nome: new FormControl('', [Validators.required, Validators.minLength(3)]),
       telefone: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email])
     });
@@ -34,7 +33,7 @@ export class ClienteComponent implements OnInit {
     this.setCliente();
     this.clienteService.postCliente(this.cliente).subscribe(
       (resposta) => { this.cliente = resposta , this.mensagemSucesso(), this.resetaFormulario(); },
-      (erro) => this.mensagemErro(erro)
+      () => this.mensagemErro()
     );
   }
 
@@ -52,8 +51,8 @@ export class ClienteComponent implements OnInit {
     this.toastr.info(`Cliente ${this.formulario.controls.nome.value} cadastrado com sucesso!`);
   }
 
-  mensagemErro(erro: string): void {
-    this.toastr.warning(erro);
+  mensagemErro(): void {
+    this.toastr.warning('Erro ao cadastrar');
   }
 
 

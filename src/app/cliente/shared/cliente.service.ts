@@ -12,7 +12,7 @@ export class ClienteService {
 
   constructor(private http: HttpClient) { }
 
-  url = environment.baseUrl + 'cliente';
+  url = environment.baseUrl + 'api/clientes';
 
   postCliente(cliente: Cliente): Observable<Cliente>{
     return this.http.post(this.url, cliente);
